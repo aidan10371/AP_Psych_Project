@@ -1,0 +1,118 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.lg-container {
+  height: 50%;
+  width: 100%;
+  text-align: center;
+}
+
+.info {
+  padding: 10% 10%;
+  font-family: "Lato", sans-serif;
+  font-size: 23px;
+  line-height: 40px;
+}
+
+.note {
+  font-family: "Lato", sans-serif;
+  font-size: 15px;
+  padding: 20px 35px;
+}
+
+.cta {
+  padding: 12px 25px 15px 25px;
+  font-family: "Lato", sans-serif;
+  font-weight: 800;
+  letter-spacing: 1px;
+  font-size: 20px;
+  border: none;
+  border-radius: 7px;
+  background-color: rgb(76, 191, 245);
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+  margin: 0px 15px;
+}
+
+.title-container {
+  height: 10vh;
+  background: linear-gradient(0.25turn, rgb(0, 94, 172), rgb(32, 169, 233));
+  font-family: "Lato", sans-serif;
+  text-align: center;
+}
+
+.title {
+  font-size: 16px;
+  line-height: 9vh;
+  color: white;
+  display: inline-block;
+}
+
+#interactive {
+  height: 75vh;
+  overflow-y: scroll;
+}
+
+#menu {
+  height: 15vh;
+  text-align: center;
+  background-color: aliceblue;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+img {
+  width: 90%;
+  height: 90%;
+  margin-left: 5%;
+  margin-top: 2%;
+  object-fit: cover;
+  object-position: top;
+}
+
+.icon {
+  color: white;
+  height: 25px;
+  padding: 0px 15px;
+  position: absolute;
+  top: 18px;
+  animation: pulse 1s infinite;
+}
+
+iframe {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes pulse {
+  0% {
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+  }
+}
+
+/* Effects */
+
+.cta:hover {
+  transition-duration: 300ms;
+  transform: translateY(-5px);
+  box-shadow: 5px 5px rgb(185, 233, 241);
+}
+
+.cta {
+  transition-duration: 300ms;
+}
+
+:disabled {
+  cursor: not-allowed;
+  opacity: .5;
+}

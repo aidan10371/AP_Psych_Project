@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Variable Ratio Schedule</title>
+    <link rel="stylesheet" href="../slides.css" />
+  </head>
+  <body>
+    <div id="infinite-list"></div>
+    <div class="note">Scroll down on the display above</div>
+    <script>
+      var listElm = document.querySelector("#infinite-list");
+
+      // Add 20 items.
+      var nextItem = 1;
+      var loadMore = function () {
+        for (var i = 0; i < 20; i++) {
+          var item = document.createElement("li");
+          var randomNum = Math.floor(Math.random() * 15);
+          text = "Mundane content"
+          if (randomNum == 7 || randomNum == 4) {
+              text = "Exciting content!";
+          }
+          item.innerText = text;
+          listElm.appendChild(item);
+        }
+      };
+
+      // Detect when scrolled to bottom.
+      listElm.addEventListener("scroll", function () {
+        if (listElm.scrollTop + listElm.clientHeight >= listElm.scrollHeight) {
+          loadMore();
+        }
+      });
+
+      // Initially load some items.
+      loadMore();
+    </script>
+  </body>
+</html>

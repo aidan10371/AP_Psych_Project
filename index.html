@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psychology and Websites</title>
+    <link rel="stylesheet" href="./main.css">
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+</head>
+<body>
+    <noscript>
+        <div style="width: 100%; text-align: center; background-color: darkred; color: white; padding: 15px; font-family: Arial, sans-serif;">You must enable javascript to use this site. <a style="color: white;" href="https://www.enable-javascript.com/" target="_blank">How do I do this?</a></div>
+    </noscript>
+    <div class="lg-container">
+        <p class="info">Welcome to my AP Psychology Vocab Project! Learn about how web developers use psychology to create user expierences in an interactive way.</p>
+    </div>
+    <div class="lg-container">
+        <button id="start" class="cta" onclick="javascript:window.location.href = 'explore.html'">Start Now →</button>
+        <div id="size-notice" style="display: none" class="note">This experience was made for desktop only. Visit this website on a computer or resize your screen if you're already on one.</div>
+    </div>
+    <script>
+        addEventListener("resize", checkScreenSize)
+
+        function checkScreenSize() {
+            const width = $(document).width();
+            if (width < 850) {
+                $("#start").prop("disabled", true);
+                $("#size-notice").show()
+            } else {
+                $("#start").prop("disabled", false);
+                $("#size-notice").hide()
+            }
+        }
+
+        checkScreenSize() // Check once
+    </script>
+</body>
+</html>

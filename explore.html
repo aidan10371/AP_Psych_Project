@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Psychology and Websites</title>
+    <link rel="stylesheet" href="./main.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <noscript>
+        <div style="width: 100%; text-align: center; background-color: darkred; color: white; padding: 15px; font-family: Arial, sans-serif;">You must enable javascript to use this site. <a style="color: white;" href="https://www.enable-javascript.com/" target="_blank">How do I do this?</a></div>
+    </noscript>
+    <div class="title-container">
+        <span class="title">
+            <h1 id="title-text">Introduction</h1>
+        </span>
+        <span class="title" id="interactive-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+            </svg>
+        </span>
+    </div>
+    <div id="interactive">
+        <div class="info">During this experience, you will see a mix of text, images, pseudo websites, and interactive displays. When you are shown an interactive page, an icon like the example one on this screen will appear at the top signaling that you can click on buttons, scroll down, and mess with things.</div>
+    </div>
+    <div id="menu">
+        <button id="back" class="cta" onclick="back()" style="display: none">← Back</button>
+        <button id="next" class="cta" onclick="next()">Next →</button>
+    </div>
+    <script>
+        var index = -1;
+
+        const slides = [
+            {
+                title: "Serial Positioning Effect",
+                type: "text",
+                content: "The serial positioning effect says that the first and last items in a list will be remembered best, and the middle items will be forgotten most easily. Developers use this phenomenon when creating navigation bars by putting the most important items in the front and at the end."
+            },
+            {
+                title: "Serial Positioning Effect",
+                type: "img",
+                content: "barnes.png"
+            },
+            {
+                title: "Serial Positioning Effect",
+                type: "img",
+                content: "barnes-edit.png"
+            },
+            {
+                title: "Serial Positioning Effect",
+                type: "text",
+                content: "Notice how Barnes and Noble put their most important products (books and movies) at the front and back of their menu. They put less important things like categories of books or eBooks in the middle."
+            },
+            {
+                title: "Foot in the Door Effect",
+                type: "text",
+                content: 'The foot in the door effect is a method of compliance in which one asks for a small favor and progressively moves towards a larger item. Paid websites accomplish this by offering and pushing "freemium". The next page you will see is a faux online email service that uses this technique. Try signing up and "sending" perhaps 20 emails.'
+            },
+            {
+                title: "Foot in the Door Effect",
+                type: "web",
+                content: "footindoor.html"
+            },
+            {
+                title: "Door in the Face Effect",
+                type: "text",
+                content: "This effect is another method of compliance in which you ask someone for an absurdly large favor, and using their guilty feelings to convince them to accept a more reasonable favor. Websites use this to fool people into thinking they are being offered a good deal for a very valuable product (based on the other ridiculous prices)."
+            },
+            {
+                title: "Door in the Face Effect",
+                type: "img",
+                content: "wix.png"
+            },
+            {
+                title: "Door in the Face Effect",
+                type: "text",
+                content: `Wix implements the Door in the Face Effect by showing their outrageously priced enterprise plans first, and finally the "for personal use" plan. Wix is a perfect example of this because nobody (who has a brain) uses their enterprise plans. Wix is never used by professional developers as they are drag-and-drop, and you won't find a single name brand on the internet that is hosted by them. Their key customers are small businesses who want something cheap and easy; my guess is that they offer their expensive plans almost entirely for this effect.`
+            },
+            {
+                title: "Group Polarization",
+                type: "text",
+                content: `Group polarization says that as like-minded people converse, their views stray from the middle. The goal of social media sites is to keep you engaged for as long as possible. Algorithms have made it possible to keep users in a bubble of only what they like. Sounds great, who wants to see posts they don't like? The downside of this is Group Polarization. When you agree with political or multi-sided content in general, you are categorized so you only see similar content in the future. You will almost never see a valid argument from "the other side". As a result, people on all sides of the political and other spectrums can easily become more extreme.`
+            },
+            {
+                title: "Group Polarization",
+                type: "img",
+                content: "polarization.webp"
+            },
+            {
+                title: "Group Polarization",
+                type: "text",
+                content: 'The previous image is an extremely oversimplified version of how a simple "like" on a double sided post can put users into categories to keep them in a bubble of like-minded people, where group polarization is waiting to occur.'
+            },
+            {
+                title: "Z-Pattern",
+                type: "text",
+                content: 'Humans, particularly ones that read RTL (right to left), consistently view pages in a "Z" pattern. Developers may intentionally place key content on the 4 points formed by an imaginary Z that symbolizes how a user would read the page. Content along the Z may also be ordered based on importance or order of events.'
+            },
+            {
+                title: "Z-Pattern",
+                type: "img",
+                content: "fb.png"
+            },
+            {
+                title: "Variable Ratio Schedule",
+                type: "text",
+                content: "The infinite scrolling feature on most social networks was put in place for a reason. A variable ratio schedule is a type of reinforcement schedule in operant conditioning, where a reward is dispatched randomly based on the amount of effort spent on a task. This is exactly what is occurring when you scroll through Tiktok, Facebook, Youtube, etc. Every so often, perhaps an average of every 10 posts, you come across something that makes you laugh or looks interesting. This same type of schedule is used in gambling/slot machines, and is implemented by developers in sites that generate revenue from user engagement because it is the most addictive schedule."
+            },
+            {
+                title: "Variable Ratio Schedule",
+                type: "web",
+                content: "infinite.html"
+            },
+            {
+                title: "Paradox of Choice",
+                type: "text",
+                content: 'The Paradox of Choice is that too many options results in indecision. Notice that some websites with search features limit the amount of results. This is called pagination, and is the opposite of infinite scrolling. You must instead press "load more" or "next" to get more results. Pagination is usually used in sites that profit off of user decisions/purchases, not engagement. This is done not only to improve load times, but also to limit a user\'s choices to a smaller group of popular items. On the next slides you will see examples of sites (Amazon.com and Realtor.com) that use pagination to cut choices.'
+            },
+            {
+                title: "Paradox of Choice",
+                type: "img",
+                content: 'amazon.png'
+            },
+            {
+                title: "Paradox of Choice",
+                type: "img",
+                content: 'realtor.png'
+            },
+            {
+                title: "Cones",
+                type: "text",
+                content: "Cones are concentrated in the center of the retina, around the fovea. Cones are best at perceiving color and detail. The following pseudo blog post implements colors and images that your cones help you decipher."
+            },
+            {
+                title: "Cones",
+                type: "web",
+                content: "cones.html"
+            },
+            {
+                title: "Rods",
+                type: "text",
+                content: 'Rods are located around the edges of the retina and as one of their functions are used for night vision. Rods don\'t detect color and rather are sensitive to movement and changes in darkness. Some websites have built in "dark modes" that remove most color and create drastic brightness differences that our cones can see better when we\'re working in the dark. You will see the same blog post next, and have the option to toggle dark mode this time.'
+            },
+            {
+                title: "Rods",
+                type: "web",
+                content: "rods.html"
+            },
+            {
+                title: "Yerkes-Dodson Law",
+                type: "text",
+                content: "The Yerkes-Dodson Law says that performance increases with arousal to a point and then decreases as stimulation becomes too stressful. All websites have a level of arousal created by the fonts, colors, images, animations, white space, and even sound that they implement. On the next slides, you will see 3 versions of a faux test taking website. The first will be understimulating, the second overstimulating, and the third just right (where performance would be highest)."
+            },
+            {
+                title: "Yerkes-Dodson Law",
+                type: "web",
+                content: "test-bland.html"
+            },
+            {
+                title: "Yerkes-Dodson Law",
+                type: "web",
+                content: "test-crazy.html"
+            },
+            {
+                title: "Yerkes Dodson Law",
+                type: "web",
+                content: "test-normal.html"
+            },
+            {
+                title: "Done",
+                type: "text",
+                content: "That's the end, I hope you enjoyed this and learned something new about how psychology is used in websites!"
+            }
+        ]
+
+        function next() {
+            index += 1;
+            changeSlide()
+        }
+
+        function back() {
+            index -= 1;
+            changeSlide()
+        }
+
+        function interactiveIcon(bool) {
+            if (bool) {
+                $("#interactive-icon").show();
+            } else {
+                $("#interactive-icon").hide();
+            }
+        }
+
+        function changeSlide() {
+            const slide = slides[index];
+            const { title, type, content } = slide;
+
+            $("#title-text").text(title)
+            switch (type) {
+                case "img":
+                    $("#interactive").html(`
+                    <img src="./slides/${content}">
+                    `)
+                    interactiveIcon(false)
+                    break;
+                case "text":
+                    $("#interactive").html(`
+                    <div class="info">${content}</div>
+                    `)
+                    interactiveIcon(false)
+                    break;
+                case "web":
+                    $("#interactive").html(`
+                    <iframe src="./slides/${content}">
+                    `)
+                    interactiveIcon(true)
+            }
+
+            if (index < 1) { // hide back button before slide 3 so users can't even go back to the intro page (since it's the default content it gets replaced)
+                $("#back").hide()
+            } else {
+                $("#back").show()
+            }
+
+            if (index > (slides.length - 2)) {
+                $("#next").hide()
+            } else {
+                $("#next").show()
+            }
+        }
+    </script>
+  </body>
+</html>

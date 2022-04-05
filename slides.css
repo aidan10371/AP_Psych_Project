@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300&family=Poppins:ital,wght@0,300;1,300&display=swap'); /* Normal fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Rubik+Bubbles&display=swap'); /* Crazy fonts */
+
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: 'Poppins', sans-serif;
+}
+
+h1 {
+    font-size: 35px;
+    padding: 30px;
+    text-align: center;
+    color: rgb(73, 73, 73);
+    font-family: 'Merriweather', serif;
+}
+
+h2 {
+    font-size: 30px;
+    font-weight: bold;
+    text-align: center;
+    color: rgb(73, 73, 73);
+    font-family: 'Merriweather', serif;
+    display: inline-block;
+}
+
+.column {
+    width: 33%;
+    display: inline-block;
+    text-align: center;
+}
+
+.row {
+    margin: 20px;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 1px 0px 10px 1px rgb(179, 179, 179);
+    padding: 30px;
+}
+
+.flex-container {
+    display: flex;
+    align-items: center;
+}
+
+.shoutout {
+    background: linear-gradient(0.25turn, rgb(188, 106, 255), rgb(59, 193, 255));
+    border-radius: 5px;
+    padding: 0px 7px;
+    margin-top: -3px;
+    margin-left: 15px;
+    font-size: 22px;
+}
+
+button {
+    padding: 10px;
+    border-radius: 10px;
+    background-color: rgb(48, 48, 48);
+    color: white;
+    border: none;
+    font-size: 17px;
+    margin: 20px;
+    padding: 10px 25px;
+    transition-duration: 150ms;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: rgb(100, 100, 100);
+    transition-duration: 150ms;
+}
+
+#infinite-list {
+    width: 250px;
+    height: 350px;
+    border-radius: 10px;
+    border: 5px gray solid;
+    margin: auto;
+    margin-top: 30px;
+    overflow: auto;
+}
+
+li {
+    list-style: none;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 1px 0px 10px 1px rgb(179, 179, 179);
+    margin: 15px 10px;
+}
+
+.note {
+    font-family: "Lato", sans-serif;
+    font-size: 15px;
+    padding: 20px 35px;
+    text-align: center;
+}
+
+.blog-text {
+    padding: 15px 50px;
+    line-height: 35px;
+}
+
+.crazy-title {
+    font-family: 'Rubik Bubbles', cursive;
+}
+
+.crazy-text {
+    font-family: 'Lobster', cursive;
+}
+
+/* Colors */
+.green {
+    color: rgb(31, 109, 31);
+}
+
+.green-bg {
+    background-color: rgb(158, 202, 158);
+}
+
+/* Effects */
+
+:disabled:hover {
+    cursor: not-allowed;
+}

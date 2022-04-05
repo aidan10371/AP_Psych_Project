@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Foot in the Door Effect</title>
+    <link rel="stylesheet" href="../slides.css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="signup">
+      <h1>Email Sending Service</h1>
+      <div class="row">
+        <div class="flex-container">
+          <h2>Standard Plan</h2>
+          <span class="shoutout">FREE</span>
+        </div>
+        <br />
+        <div>Start sending emails up to a limit immediatly.</div>
+        <button onclick="signup()">Sign up for Free</button>
+      </div>
+      <div class="row">
+        <details>
+          <summary>
+            <h2>Silver and Gold Plans</h2>
+          </summary>
+          <br />
+          Send larger amounts of emails. You can always upgrade to these paid
+          tiers.
+        </details>
+      </div>
+    </div>
+    <div id="dashboard" style="display: none">
+        <h1>Email Dashboard</h1>
+        <div class="row">
+            <div>Plan: <span id="plan">Standard</span></div>
+            <div>Cost: $<span id="cost">0</span> per month</div>
+            <div>Emails sent: <span id="sent">0</span>/<span id="max">5</span></div>
+            <br />
+            <button id="sendemail" onclick="sendemail()">Send an Email</button>
+            <br />
+            <div id="upgrade" style="display: none">
+                You must upgrade your plan to continue
+                <button onclick="upgrade()">Upgrade</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        function signup() {
+            $("#signup").hide()
+            $("#dashboard").show()
+        }
+
+        sent = 0; // Number of emails sent
+
+        planIndex = 0;
+
+        plans = [
+            {
+                name: "Standard",
+                cost: 0,
+                max: 5
+            },
+            {
+                name: "Silver",
+                cost: 5,
+                max: 10
+            },
+            {
+                name: "Gold",
+                cost: 15,
+                max: "no maximum"
+            }
+        ]
+
+        function sendemail() {
+            sent += 1;
+            $("#sent").text(sent)
+
+            if (sent == plans[planIndex].max) {
+                $("#sendemail").hide()
+                $("#upgrade").show()
+            }
+        }
+
+        function upgrade() {
+            planIndex += 1;
+
+            $("#sendemail").show()
+            $("#upgrade").hide()
+            $("#max").text(plans[planIndex].max)
+            $("#plan").text(plans[planIndex].name)
+            $("#cost").text(plans[planIndex].cost)
+        }
+    </script>
+  </body>
+</html>
